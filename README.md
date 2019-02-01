@@ -1,24 +1,36 @@
-# README
+# FaireBnb
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Cogitations
 
-Things you may want to cover:
+### User
 
-* Ruby version
+- email
+- phone
+- description
 
-* System dependencies
+can have many : flats, bookings
 
-* Configuration
+### Flat
 
-* Database creation
+- beds
+- price
+- descrition
+- wifi (bool)
 
-* Database initialization
+belongs to : user, city
 
-* How to run the test suite
+### Booking
 
-* Services (job queues, cache servers, search engines, etc.)
+- start_date
+- length
 
-* Deployment instructions
+belongs to : user, flat
 
-* ...
+### City
+
+has many : flats
+
+## Model
+
+- flat can only be booked by one user at a time (disponibilité)
+- user cannot book his own flat?
