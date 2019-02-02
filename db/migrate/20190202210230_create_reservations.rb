@@ -4,6 +4,8 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.datetime :start_date
       t.datetime :end_date
 
+      t.belongs_to :admin, index: true
+      t.belongs_to :reservation, index: true
       t.timestamps
     end
   end
