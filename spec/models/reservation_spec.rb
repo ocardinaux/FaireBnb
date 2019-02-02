@@ -8,14 +8,16 @@ RSpec.describe Reservation, type: :model do
 
   it "has a valid factory" do
     # vérifie si la factory est valide
+    expect(build(:reservation)).to be_valid
   end
 
   context "validation" do
     it "is valid with valid attributes" do
       # vérifie si la réservation est bien une réservation
+      it { expect(:reservation).to_be_a Reservation }
     end
     describe "start_date and end_date" do
-    	it "is not valid if start_date is after end_date" do
+    	pending "is not valid if start_date is after end_date" do
         # impossible de créer une réservation avec une start_date après la end_date
 	    end
 		end
