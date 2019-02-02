@@ -22,15 +22,15 @@ RSpec.describe User, type: :model do
       # vérifie l'unicité de l'email
       pending "vérifie l'unicité de l'email"
       # verifie différentes valeurs de l'email qui doivent être correctes
-      it { expect(@user.email).to match(//\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z//) }
-        # vérifie différentes valeurs de l'email qui ne doivent pas être correctes
-        pending "vérifie différentes valeurs de l'email qui ne doivent pas être correctes"
-      end
+      it { expect(@user.email).to match(/\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/) }
+      # vérifie différentes valeurs de l'email qui ne doivent pas être correctes
+      pending "vérifie différentes valeurs de l'email qui ne doivent pas être correctes"
+    end
     describe "#phone_number" do
       # vérifie la présence du phone_number
       it { expect(@user).to validate_presence_of(:phone_number) }
       # verifie différentes valeurs du phone_number qui doivent être correctes
-      pending "verifie différentes valeurs du phone_number qui doivent être correctes"
+      it { expect(@user.email).to match(/\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/) }
       # vérifie différentes valeurs du phone_number qui ne doivent pas être correctes
 	  end
   end
