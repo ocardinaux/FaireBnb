@@ -17,8 +17,9 @@ RSpec.describe Reservation, type: :model do
       it { expect(:reservation).to_be_a Reservation }
     end
     describe "start_date and end_date" do
-    	pending "is not valid if start_date is after end_date" do
+    	it "is not valid if start_date is after end_date" do
         # impossible de créer une réservation avec une start_date après la end_date
+        expect(:start_date < :end_date).to_be true
 	    end
 		end
   end
