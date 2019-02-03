@@ -16,8 +16,4 @@ class Listing < ApplicationRecord
   has_many :reservations
   has_many :guests, foreign_key: "guest_id", class_name: "User", through: :reservations
 
-  def overlaping_reservation
-    false
-  end
-
 end
