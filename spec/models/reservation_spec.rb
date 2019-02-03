@@ -14,12 +14,12 @@ RSpec.describe Reservation, type: :model do
   context "validation" do
     it "is valid with valid attributes" do
       # vérifie si la réservation est bien une réservation
-      it { expect(@reservation).to be_a(Reservation) }
+      expect(@reservation).to be_a(Reservation)
     end
     describe "start_date and end_date" do
     	it "is not valid if start_date is after end_date" do
         # impossible de créer une réservation avec une start_date après la end_date
-        expect(@reservation.start_date < @reservation.end_date).to_be true
+        expect(@reservation.start_date > @reservation.end_date).to be false
 	    end
 		end
   end

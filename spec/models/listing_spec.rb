@@ -52,9 +52,12 @@ RSpec.describe Listing, type: :model do
   end
 
   context "public instance methods" do
-    describe "#overlaping_reservation" do
+    describe "#reserved_days return array" do
+      it { expect(@listing.reserved_days).to be_a(Array)}
+    end
+    describe "#overlapping_reservation?" do
       # vérifie que le listing a bien une méthode d'instance nommée overlaping_reservation? 
-      pending { expect(@listing.overlaping_reservation).to exist }
+      it { expect( @listing.overlapping_reservation?).to exist }
       # vérifie que la méthode marche bien
     end
   end
