@@ -54,7 +54,7 @@ RSpec.describe Listing, type: :model do
   context "public instance methods" do
     describe "#overlaping_reservation" do
       # vérifie que le listing a bien une méthode d'instance nommée overlaping_reservation? 
-      pending it { expect(@listing.overlaping_reservation?).to exist }
+      pending { expect(@listing.overlaping_reservation).to exist }
       # vérifie que la méthode marche bien
     end
   end
