@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  has_many :listings, dependent: :destroy, foreign_key: "admin_id", class_name: "Listing"
+  has_many :reservations, dependent: :destroy, foreign_key: "guest_id", class_name: "Reservation"
+  has_many :listings, through: :reservations, foreign_key: "guest_id", class_name: "Listing"
+
   validates :email,
     presence: true,
     uniqueness: true,
@@ -8,7 +12,4 @@ class User < ApplicationRecord
     presence: true,
     format: { with: /\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/, message: "Give me a valid phone number please" }
     
-  has_many :listings, dependent: :destroy, foreign_key: "admin_id", class_name: "Listing"
-  has_many :reservations, dependent: :destroy, foreign_key: "guest_id", class_name: "Reservation"
-  # has_many :listings, through: :reservations, foreign_key: "guest_id", class_name: "Listing"
 end

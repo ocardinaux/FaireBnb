@@ -57,7 +57,7 @@ RSpec.describe Listing, type: :model do
     end
     describe "#overlapping_reservation?" do
       # vérifie que le listing a bien une méthode d'instance nommée overlaping_reservation? 
-      it { expect( @listing.overlapping_reservation?).to exist }
+      it { expect( @listing.overlapping_reservation?(starting, ending)).to exist }
       # vérifie que la méthode marche bien
     end
   end
