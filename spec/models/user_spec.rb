@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   context "validation" do
     it "is valid with valid attributes" do
       # vérifie si le user est bien valide
-      expect(@user).to_be_a User
+      expect(@user).to be_a(User)
     end
     
     describe "#email" do

@@ -15,20 +15,20 @@ RSpec.describe Listing, type: :model do
   context "validation" do
     it "is valid with valid attributes" do
       # vérifie si le logement est bien valide
-      expect(@listing).to_be_a Listing
+      expect(@listing).to be_a(Listing)
     end
 
     describe "#available_beds" do
       # vérifie que available_beds est bien obligatoire
       it { expect(@listing).to validate_presence_of(:available_beds) }
       # vérifie que available_beds est bien un integer strictement positif
-      it {expect(@listing.available_beds).to_be_a(Integer) }
+      it {expect(@listing.available_beds).to be_a(Integer) }
 		end
     describe "#price" do
       # vérifie que le prix est bien obligatoire
       it { expect(@listing).to validate_presence_of(:price) }
       # vérifie que le prix est bien un integer strictement positif
-      it { expect(@listing.price).to_be_a(Integer) }
+      it { expect(@listing.price).to be_a(Integer) }
 		end
     describe "#description" do
       # vérifie que la description est bien obligatoire
@@ -46,9 +46,9 @@ RSpec.describe Listing, type: :model do
     # vérifie que le logement a plusieurs réservations
     it { expect(@listing).to have_many(:reservations) }
     # vérifie que le logement appartient à une ville
-    it { expect(@listing.city).to_be_a(City) }
+    it { expect(@listing.city).to be_a(City) }
     # vérifie que le logement appartient bien à un admin qui est un User en nom de classe
-    it { expect(@listing.admin).to_be_a(User) }
+    it { expect(@listing.admin).to be_a(User) }
   end
 
   context "public instance methods" do

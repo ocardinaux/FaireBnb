@@ -28,23 +28,23 @@ ActiveRecord::Schema.define(version: 2019_02_02_210230) do
     t.text "description"
     t.boolean "has_wifi"
     t.text "welcome_message"
-    t.bigint "guest_id"
+    t.bigint "admin_id"
     t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_listings_on_admin_id"
     t.index ["city_id"], name: "index_listings_on_city_id"
-    t.index ["guest_id"], name: "index_listings_on_guest_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
-    t.bigint "admin_id"
-    t.bigint "reservation_id"
+    t.bigint "guest_id"
+    t.bigint "listing_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_reservations_on_admin_id"
-    t.index ["reservation_id"], name: "index_reservations_on_reservation_id"
+    t.index ["guest_id"], name: "index_reservations_on_guest_id"
+    t.index ["listing_id"], name: "index_reservations_on_listing_id"
   end
 
   create_table "users", force: :cascade do |t|
